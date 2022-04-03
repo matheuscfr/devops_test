@@ -19,8 +19,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install PHP extensions
 RUN docker-php-ext-install mbstring 
-RUN docker-php-ext-install dom
-RUN docker-php-ext-install mysqli pdo pdo_mysql 
+RUN docker-php-ext-install dom 
 RUN pecl install mongodb
 RUN echo "extension=mongodb.so" > $PHP_INI_DIR/conf.d/mongodb.ini
 

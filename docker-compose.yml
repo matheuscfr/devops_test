@@ -28,19 +28,29 @@ services:
     networks:
       - devops
 
-  db:
-    image: mysql:5.7
-    container_name: devops-db
-    restart: unless-stopped
-    environment:
-      MYSQL_DATABASE: ${DB_DATABASE}
-      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
-      MYSQL_USER: ${DB_USERNAME}
-      SERVICE_TAGS: dev
-      SERVICE_NAME: mysql
-    networks:
-      - devops
+  jenkins:
+      image: jenkins/jenkins:lts
+      privileged: true
+      user: root
+      ports:
+        - 8080:8080
+        - 50000:50000
+      container_name: jenkins
+      volumes:
+        - ./docker-compose/jenkins/jenkins_configuration:/var/jenkins_home
+        - ./var/run/docker.sock:/var/run/docker.sock
+      networks:
+        - devops
+
+  agent:
+      image: jenkins/ssh-agent:jdk11
+      privileged: true
+      user: root
+      container_name: agent
+      expose:
+        - 22
+      environment:
+        - JENKINS_AGENT_SSH_PUBKEY=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCzCxdTBkE88je+qo+V9a9MS7tcaWrZgl3hsH1G+z0RwYuD4DlQ/gAhpZIiEtfS2tgaW7w14n8BFRK1agw2KO9Y86LW9Yf6zHPKt/6Djbz4Tb53oTYH62RuF6dXnhqyK/aXEhz63LRsIWz0e2xPm2qdeVWzqcsS94IQBDBi0X0V7HiYGc5+GQRzXBtXlL4IH92ckWsWkZyBEiElnNQ3HbJ3O+Qyk89FWXpfNSIWruvNVhXQ6a6rdhPM9JX6/YuybB3n7zZ/9ID1/Fpb3CJYFw+OL2agPYDwqtzTQyba3/5eY1hvHLD2SvIk7yMQzjI9cFcs5TxImCN8VW5+8pfWVE
 
 networks:
   devops:

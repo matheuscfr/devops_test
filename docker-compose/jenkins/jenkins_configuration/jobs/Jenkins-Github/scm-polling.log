@@ -1,0 +1,13 @@
+Started on Apr 3, 2022, 6:02:00 PM
+Using strategy: Default
+[poll] Last Built Revision: Revision ac93eba95d0cb5a82e48690b4d74c430f4665e3b (refs/remotes/origin/main)
+The recommended git tool is: NONE
+using credential github_matheus
+ > git --version # timeout=10
+ > git --version # 'git version 2.30.2'
+using GIT_ASKPASS to set credentials Acesso ao github
+ > git ls-remote -h -- https://github.com/matheuscfr/devops_test # timeout=10
+Found 1 remote heads on https://github.com/matheuscfr/devops_test
+[poll] Latest remote head revision on refs/heads/main is: ac93eba95d0cb5a82e48690b4d74c430f4665e3b - already built by 5
+Done. Took 0.16 sec
+No changes

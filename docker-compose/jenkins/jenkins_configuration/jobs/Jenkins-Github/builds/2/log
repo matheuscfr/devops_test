@@ -1,0 +1,17 @@
+Started by user [8mha:////4PfrAMpdnLPJc1MAyW6147Gw/hGkRyb0P142VF0W8fbwAAAAmB+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAy2EgYe/dLi1CL9otKk1NJiAB6TEhLBAAAA[0mRubeus
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/Jenkins-Github
+The recommended git tool is: NONE
+using credential github_matheus
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/Jenkins-Github/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/matheuscfr/devops_test # timeout=10
+Fetching upstream changes from https://github.com/matheuscfr/devops_test
+ > git --version # timeout=10
+ > git --version # 'git version 2.30.2'
+using GIT_ASKPASS to set credentials Acesso ao github
+ > git fetch --tags --force --progress -- https://github.com/matheuscfr/devops_test +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse origin/master^{commit} # timeout=10
+ERROR: Couldn't find any revision to build. Verify the repository and branch configuration for this job.
+Finished: FAILURE
